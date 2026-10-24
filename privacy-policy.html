@@ -1,86 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width'>
-  <title>Privacy Policy</title>
-  <style> body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding:1em; } </style>
-</head>
-<body>
+# Privacy Policy for SpeedCheck
 
-<strong>Privacy Policy</strong>
-<p>This privacy policy applies to the Eazimomo app (hereby referred to as "Application") for mobile devices that was created by Gbekonzy (hereby referred to as "Service Provider") as a Freemium service. This service is intended for use "AS IS".</p><br>
+**Last Updated:** October 24, 2026  
+**Effective Date:** October 24, 2026  
 
-<strong>Information Collection and Use</strong>
-<p>The Application collects specific information when you download, sign in, and use it to provide its core functionalities. The information collected includes:</p>
+Thank you for choosing **SpeedCheck** ("we", "our", or "the App"). SpeedCheck is a road safety and speed awareness application designed to assist drivers in Ghana with real-time speed monitoring and automated speed camera zone alerts.
 
-<ul>
-  <li>Email Address: Collected securely via Google Sign-In to manage your account and link your subscription or trial to your identity.</li>
-  <li>Device Identifiers: We collect your device's Android ID and a hashed version of your Firebase Installation ID and hardware fingerprint. This is used strictly for fraud prevention and to manage our one-time free trial system across devices.</li>
-  <li>Payment Information: If you upgrade to a premium plan, we process transaction references, plan selections, and payment amounts.</li>
-</ul>
+Your privacy is paramount. This Privacy Policy outlines what information the App accesses, how that information is used, and confirms that **SpeedCheck does not collect, store remotely, share, or sell any personal or location data.**
 
-<p><strong>Data stored locally (Not transmitted):</strong></p>
-<ul>
-  <li>Transaction Logs & Custom Shortcuts: Your generated USSD shortcuts, phone numbers entered for transactions, and USSD responses are saved entirely on your local device storage and are never transmitted to our servers.</li>
-  <li>Contact Names: The Application may request permission to read your contacts to allow you to easily pick a phone number for a transaction. Your contacts are processed entirely on your device and are never uploaded to our servers.</li>
-</ul>
+---
 
-<p>The Application does not gather precise information about the location of your mobile device, nor does it track the specific pages you visit or the time spent on the app.</p>
-<p>The Application does not use Artificial Intelligence (AI) technologies to process your data or provide features.</p><br>
+## 1. Summary of Core Privacy Principles
 
-<p>The Service Provider may use the information you provided to contact you from time to time to provide you with important information, required notices, and marketing promotions.</p><br>
+* 🔒 **100% On-Device Processing**: All GPS location and speed calculations occur strictly on your physical device in real time.
+* 🚫 **No Remote Data Collection**: We do not own, maintain, or transmit data to remote servers or third-party databases.
+* 🚫 **No Personal Information Required**: SpeedCheck does not require an account, sign-in, name, phone number, email address, or vehicle details.
+* 🚫 **No Data Sharing or Selling**: None of your data is ever sold, leased, or shared with advertisers, government agencies, or commercial entities.
 
-<strong>Use of Accessibility Service API</strong>
-<p>The Application requires the use of the Android AccessibilityService API to provide its core functionality.</p>
-<ul>
-  <li><strong>Why it's used:</strong> The Accessibility Service is used exclusively to automate multi-step USSD codes and read the text content of USSD dialog pop-ups (such as network transaction confirmations) to automatically log your transaction status.</li>
-  <li><strong>Data accessed:</strong> The service only reads the text presented in USSD system dialogs.</li>
-  <li><strong>Privacy of data:</strong> The data read by the Accessibility Service is saved securely in the Application's local database on your device. None of the data read by the Accessibility Service is ever transmitted, shared, or uploaded to our servers.</li>
-</ul><br>
+---
 
-<strong>Third Party Access</strong>
-<p>The Service Provider may share your information with third parties in the ways that are described in this privacy statement. Only necessary data is transmitted to external services to aid the Service Provider in processing payments and authenticating users.</p>
+## 2. Information Accessed and Permissions Requested
 
-<p>Please note that the Application utilizes third-party services that have their own Privacy Policy about handling data. Below are the links to the Privacy Policy of the third-party service providers used by the Application:</p>
+To provide its core safety features, SpeedCheck requires specific Android system permissions:
 
-<ul>
-  <li>Google Play Services</li>
-  <li>Firebase Authentication & Cloud Firestore</li>
-  <li>Paystack (Payment Processor)</li>
-</ul><br>
+### A. Location Permissions (Fine, Coarse & Background Location)
+* **Permissions**: `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`, `ACCESS_BACKGROUND_LOCATION`
+* **Purpose**:
+  * To calculate your instantaneous vehicle speed in kilometers per hour (km/h) via GPS.
+  * To detect whether you are traveling toward designated speed camera enforcement corridors (e.g., N1 Highway, Borteyman Sports Complex, Kawukudi, Kanda Highway).
+  * To provide audio alerts before and when exceeding speed limits even when the screen is locked or while using other navigation software.
+* **Storage & Transmission**: Location data is processed ephemerally in RAM while the monitoring service runs. **No location coordinates, route histories, or GPS logs are ever recorded to permanent storage or sent over the Internet.**
 
-<p>The Service Provider may disclose User Provided and Automatically Collected Information:</p>
-<ul>
-  <li>as required by law, such as to comply with a subpoena, or similar legal process;</li>
-  <li>when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;</li>
-  <li>with their trusted services providers (such as payment processors) who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.</li>
-</ul><br>
+### B. Foreground Service (`FOREGROUND_SERVICE_LOCATION`)
+* **Permission**: `FOREGROUND_SERVICE_LOCATION`
+* **Purpose**: In compliance with Android operating system standards, SpeedCheck operates a foreground service with a persistent status notification to prevent the system from terminating speed monitoring while you are driving.
 
-<strong>Opt-Out Rights</strong>
-<p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p><br>
+### C. Notifications
+* **Permission**: `POST_NOTIFICATIONS`
+* **Purpose**: Displays the active speed status and issues heads-up warnings if your vehicle exceeds the designated speed limit.
 
-<strong>Data Retention and Deletion Policy</strong>
-<p>The Service Provider will retain User Provided data (such as your email and device identifiers) for as long as you use the Application and for a reasonable time thereafter to prevent trial abuse.</p>
-<p>Account and Data Deletion: If you'd like to request the complete deletion of your account and all associated data that you have provided via the Application, please contact the Service Provider at kentbanks96@gmail.com. Your request will be processed, and your data will be permanently deleted from our servers within a reasonable timeframe.</p><br>
+### D. Device Boot & Startup
+* **Permission**: `RECEIVE_BOOT_COMPLETED`
+* **Purpose**: Allows the background monitoring service to automatically resume after your phone restarts, only if you have explicitly enabled the "Resume on Phone Restart" setting.
 
-<strong>Children</strong>
-<p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.</p>
-<p>The Application does not address anyone under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13 years of age. In the case the Service Provider discovers that a child under 13 has provided personal information, the Service Provider will immediately delete this from their servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact the Service Provider (kentbanks96@gmail.com) so that they will be able to take the necessary actions.</p><br>
+---
 
-<strong>Security</strong>
-<p>The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.</p><br>
+## 3. Local Data Storage
 
-<strong>Changes</strong>
-<p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p><br>
+SpeedCheck uses Android Jetpack DataStore to save your user preferences locally on your device:
+* User-selected speed limit presets (e.g., 30, 50, 80, 100, 120 km/h)
+* Audio preferences (voice gender, speech pitch, speech rate, alert repeat cooldown)
+* Feature toggles (Auto-Detect mode, voice alert on/off)
+* Anonymous session trip statistics (maximum speed, average speed, and session distance)
 
-<p>This privacy policy is effective as of 2026-05-24.</p><br>
+All saved preferences remain solely on your device. Clearing the app storage or uninstalling the app permanently deletes this data.
 
-<strong>Your Consent</strong>
-<p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by us.</p><br>
+---
 
-<strong>Contact Us</strong>
-<p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at kentbanks96@gmail.com.</p>
+## 4. Third-Party Services & Analytics
 
-</body>
-</html>
+SpeedCheck does not embed advertising SDKs (such as AdMob), tracking cookies, behavioral analytics (such as Google Analytics or Firebase Analytics), or user profiling tools. 
+
+The App utilizes standard Google Play Services libraries exclusively for on-device GPS location resolution (`FusedLocationProviderClient`) and the Android system Text-to-Speech engine (`TextToSpeech`).
+
+---
+
+## 5. Compliance with Privacy Regulations
+
+SpeedCheck is developed in accordance with international and domestic privacy standards:
+* **Google Play Developer Program Policies**: Meets strict User Data and Background Location requirements.
+* **Ghana Data Protection Act, 2012 (Act 843)**: Strictly adheres to data minimization and user autonomy principles.
+* **General Data Protection Regulation (GDPR)**: No personal identification data is stored or processed.
+
+---
+
+## 6. Children's Privacy
+
+SpeedCheck is designed for vehicle operators and does not knowingly address or collect information from children under the age of 13.
+
+---
+
+## 7. Changes to This Privacy Policy
+
+We may update this Privacy Policy periodically to reflect app updates or regulatory modifications. Any revisions will be published directly within the application and in the GitHub repository. Continued use of SpeedCheck after changes are posted constitutes acceptance of the revised policy.
+
+---
+
+## 8. Contact Information
+
+If you have questions, feedback, or concerns regarding this Privacy Policy or SpeedCheck's privacy practices, please contact us:
+
+* **kentbanks96@gmail.com
